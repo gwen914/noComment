@@ -1,0 +1,63 @@
+h1 {
+/*    position: absolute;
+    top: 100px;
+    width: 40%;*/
+    text-align: center;
+/*    margin-left: 30%;*/
+}
+
+.subtitle {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+#bills {
+    padding-top: 20px;
+}
+
+#facts {
+    margin-top: 30px;
+}
+
+.section {
+    padding-left: 10%;
+}
+
+#contact ul li {
+    display: inline-block;
+    padding-right: 15px;
+}
+
+img {
+    position: relative;
+}
+
+#page {
+    position: absolute;
+    top: 200px;
+    width: 60%;
+    background-color: white !important;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 25px;
+}
+
+#lists {
+    width: 100%;
+    position: relative;
+}
+
+.list {
+    float: left;
+    width: 50%;
+}
+
+#sponsored {
+    float: left;
+    width: 50%;
+}
+
+#co-sponsored {
+    float: left;
+    width: 50%;
+}

@@ -1,0 +1,122 @@
+<html>
+<head>
+    <title>NYT Project 4</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/stylesheet.css" media="screen">
+    <link rel="stylesheet" href= "assets/css/font-awesome-4.2.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="assets/images/NYTDevLogo.png" type="image/x-icon" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+<body>
+
+<!-- main page content -->
+<div id="pageContent">
+    <div id="repPage">
+        <img id = "capitalHill" width='100%' src = "assets/images/capital_hill.jpg">
+        <div id="page">
+            <h1 id="name"><span id="firstName"></span> <span id="lastName"></span></h1>
+            <div id = "facts" class="section">
+                <p class="subtitle">Basic Facts</p>
+                <div id="lists">
+                    <div class="list">
+                        <p>Chamber: <span id="chamber"></span></p>
+                        <p>State: <span id="state"></span></p>
+                        <p>Party: <span id="party"></span></p>
+                    </div>
+                    <div class="list">
+                        <p>Seniority: <span id="seniority"></span></p>
+                        <p>Votes with party: <span id="votes-pct"></span>%</p>
+                        <p>Missed votes: <span id="missed-pct"></span>%</p>
+                    </div>
+                </div>
+                <p>Committees served on: <span id="committees-names"></span></p>
+            </div>
+            <div id = "bills" class="section">
+                <div id="sponsored">
+                    <p>Bills Sponsored by Congressperson</p>
+                    <ul id="sponsored-list">
+                    </ul>
+                </div>
+                <div id="co-sponsored">
+                    <p>Bill Co-Sponsored by Congressperson</p>
+                    <ul id="co-sponsored-list">
+                    </ul>
+                </div>
+            </div>
+            <div id="contact" class="section">
+                <ul class="fa-ul">
+                    <li><i class="fa fa-link fa-2x"></i></li>
+                    <li><i class="fa fa-facebook fa-2x"></i></li>
+                    <li><i class="fa fa-twitter fa-2x"></i></li>
+                    <li><i class="fa fa-youtube fa-2x"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- dummy bill -->
+<div id="dummyBill" class="hide">
+    <div class="bill">
+        <div class="page-header">
+            <h1>
+                Bill <span class="billCode"></span>
+                <small>
+                    sponsored by
+                    <a class="billSponsor" href="#"></a>
+                    <span class="billSponsorID hide"></span>
+                </small>
+                <span class="billID hide"></span>
+            </h1>
+        </div>
+        <p class="lead">
+            Introduced
+            <strong class="billIntroducedDate"></strong>
+            in Congress #<span class="billCongress"></span>
+            and assigned to the
+            <strong class="billCommittees"></strong>
+            committee.
+            <span class="billTitle"></span>
+        </p>
+        <h4>Congress Actions:</h4>
+        <ul class="billActions">
+            <li class="action hide">
+                <span class="actionDate"></span>:
+                <span class="actionText"></span>
+            </li>
+            <li class="noActionsText hide">No actions listed.</li>
+        </ul>
+        <div class="relatedBills">
+            <h4>Related Bills:</h4>
+            <ul class="relatedBills">
+                <li class="relatedBill hide">
+                    <a class="billLink" href="#"></a>
+                    <span class="billID hide"></span>
+                    <span class="congressNum hide"></span>
+                    sponsored by
+                    <a class="billSponsor" href="#"></a>
+                    <span class="billSponsorID hide"></span>
+                </li>
+                <li class="noRelatedText hide">No related bills found.</li>
+            </ul>
+        </div>
+        <div class="relatedArticles">
+            <h4>Related Articles:</h4>
+            <ul class="relatedArticles">
+                <li class="relatedArticle hide">
+                    <a class="relatedArticleLink" href="#" target="_blank"></a>
+                </li>
+                <li class="noRelatedText hide">No related articles found.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
