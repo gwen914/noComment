@@ -1,0 +1,205 @@
+var SunURI = "https://congress.api.sunlightfoundation.com/legislators/locate?zip=";
+var SunURIKey = "&apikey=ec971da0e5fb46c0ae3187b0c2c773d7";
+var NYTbaseURL = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/";
+var congressKey = "/current.json?api-key=7ed7b4fc1a55c0fe13d052fd45b182e8:8:63556623";
+var CKey = "7ed7b4fc1a55c0fe13d052fd45b182e8:8:63556623";
+var AKey = "03d4d30364e0db2f88e8411bbf771227:0:63556623";
+var reps = {};
+var repsLoaded = false;
+
+setStates();
+
+function setStates(){
+	reps["AL"] = [];
+	reps["AK"] = [];
+	reps["AZ"] = [];
+	reps["AR"] = [];
+	reps["CA"] = [];
+	reps["CO"] = [];
+	reps["CT"] = [];
+	reps["DE"] = [];
+	reps["DC"] = [];
+	reps["FL"] = [];
+	reps["GA"] = [];
+	reps["HI"] = [];
+	reps["ID"] = [];
+	reps["IL"] = [];
+	reps["IN"] = [];
+	reps["IA"] = [];
+	reps["KS"] = [];
+	reps["KY"] = [];
+	reps["LA"] = [];
+	reps["ME"] = [];
+	reps["MD"] = [];
+	reps["MA"] = [];
+	reps["MI"] = [];
+	reps["MN"] = [];
+	reps["MS"] = [];
+	reps["MO"] = [];
+	reps["MT"] = [];
+	reps["NE"] = [];
+	reps["NV"] = [];
+	reps["NH"] = [];
+	reps["NJ"] = [];
+	reps["NM"] = [];
+	reps["NY"] = [];
+	reps["NC"] = [];
+	reps["ND"] = [];
+	reps["OH"] = []; 
+	reps["OK"] = [];
+	reps["OR"] = [];
+	reps["PA"] = [];
+	reps["RI"] = [];
+	reps["SC"] = [];
+	reps["SD"] = [];
+	reps["TN"] = [];
+	reps["TX"] = [];
+	reps["UT"] = [];
+	reps["VT"] = [];
+	reps["VA"] = [];
+	reps["WA"] = [];
+	reps["WV"] = [];
+	reps["WI"] = [];
+	reps["WY"] = [];
+	reps["AS"] = [];
+	reps["GU"] = [];
+	reps["VI"] = [];
+	reps["PR"] = [];
+	reps["MP"] = [];
+}
+
+function fillReps(statename, iden, district){
+	var URI = 'http://api.nytimes.com/svc/politics/v3/us/legislative/congress/113/house/members/current.json?api-key=';
+	URI += CKey;
+	$.ajax({
+	    url: URI,
+	    dataType: 'jsonp',
+	    success: function(results){
+	    	var members = results.results[0].members;
+	    	for (var i = 0; i < members.length; i++) {
+	    		var state = members[i].state;
+	    		reps[state].push(members[i]);
+	    	};
+	    	console.log("Done loading state reps!");
+	    	repsLoaded = true;
+	    	showStateInfo(statename, iden);
+			getStateSenate(statename, iden, district);
+			var members = reps[iden];
+			if (district[0] == 0) {
+				// user clicked on map, show all reps in state
+				showLegislators(members, "house");
+			} else {
+				// user entered zip code, show all reps for zip
+				var temp = [];
+				for (var i = 0; i < members.length; i++) {
+					if (members[i].district == district[0]) {
+						temp.push(members[i]);
+					};
+				};
+				showLegislators(temp, "house");
+			}
+	    }
+	});
+}
+
+function setMarginHeight(){
+	$("#info").css("margin-top", $("#navbar").height());
+}
+
+// information is the zip code
+function getStateZip(zip){
+	var URI = SunURI + zip + SunURIKey;
+	$.ajax({
+	    url: URI,
+	    success: function(results){
+	    	var members = results.results;
+	    	var statename = "";
+	    	var id = "";
+	    	var district = [];
+	    	for (var i = 0; i < members.length; i++) {
+	    		if (members[i].chamber == "house") {
+	    			district.push(members[i].district)
+	    		};
+	    		statename = members[i].state_name;
+	    		id = members[i].state;
+	    	};
+	    	getLegislators(statename, id, district)
+	    }
+	});
+}
+
+// operating unit to control shit DONE, DOUBLE CHECK
+function getLegislators(statename, iden, district){
+	if (repsLoaded == false) {
+		fillReps(statename, iden, district);
+	} else {
+		showStateInfo(statename, iden);
+		getStateSenate(statename, iden, district);
+		var members = reps[iden];
+		if (district[0] == 0) {
+			// user clicked on map, show all reps in state
+			showLegislators(members, "house");
+		} else {
+			// user entered zip code, show all reps for zip
+			var temp = [];
+			for (var i = 0; i < members.length; i++) {
+				if (members[i].district == district[0]) {
+					temp.push(members[i]);
+				};
+			};
+			showLegislators(temp, "house");
+		}
+	}
+}
+
+
+function getStateSenate(statename, id, district){
+	var senateURI = NYTbaseURL + "senate/" + id + congressKey;
+	var index = 0;
+	$.ajax({
+	    url: senateURI,
+	    dataType: 'jsonp',
+	    success: function(results){
+	    	var members = results.results;
+	    	showLegislators(members, "senate");
+	    }
+	});
+}
+
+
+//barebones for this page
+function showStateInfo(statename, id){
+	html = "<h1 col-xs-12 col-sm-12 col-md-12>" + statename + " - " + id;
+	html += '</h2><div class = "col-xs-12 col-sm-6 col-md-6 senators"><h4>';
+	html += 'Senators</h4></div><div class="col-xs-12 col-sm-6 col-md-6 house"><h4>Representatives</h4></div>';
+	$("#info").html(html);
+	setMarginHeight();
+}
+
+
+//append legislators to page
+function showLegislators(results, chamber){
+	console.log(results);
+	for (var i = 0; i<results.length; i++) {
+		var name = results[i].name;
+		if (chamber == "house") {
+			name = results[i].first_name + " "+results[i].last_name;
+		};
+		var id = results[i].id;
+		var party = results[i].party;
+		var district = results[i].district;
+		html = '<div class="member"><p onclick="hide(); showRepPage(';
+		html += "'" + CKey+ "' , '" + AKey + "' , '" + id + "'" + ')">' + name + ' - ';
+		html += party + '</p></div>'
+
+		if (chamber == 'senate') {
+			$(".senators").append(html);
+		} else {
+			$(".house").append(html);
+		} 
+	};
+}
+
+function hide(){
+	$("#info").html("");
+}
