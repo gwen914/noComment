@@ -4,7 +4,6 @@ $(document).ready(function() {
 
     linkInit(CONGRESS_API_KEY, ARTICLE_API_KEY);
     showHomePage();
-    //showRepPage(CONGRESS_API_KEY, ARTICLE_API_KEY, 'B001277');
 });
 
 function linkInit(C_KEY, A_KEY) {
@@ -165,6 +164,17 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     document.getElementById('lastName').innerHTML = bio.last_name;
     document.getElementById('chamber').innerHTML = current_role.chamber;
     document.getElementById('state').innerHTML = current_role.state;
+    $('#state').off("click").click(function() {
+        hideRepPage();
+        var state;
+        $.each(uStatePaths, function(i, item){
+            if (item.id == current_role.state) {
+                state = item.n;
+            };
+        });
+        getLegislators(state, current_role.state, [0]);
+        console.log("HIII");
+    });
     document.getElementById('party').innerHTML = current_role.party == 'D' ? 'Democrat' : 'Republican';
     document.getElementById('seniority').innerHTML = current_role.seniority;
     document.getElementById('missed-pct').innerHTML = current_role.missed_votes_pct;

@@ -154,9 +154,10 @@ function createZipSubmitButton(){
 function onZipSubmit(){
     var zipCodeElement = document.getElementById('zipcode');
     var zipCode = zipCodeElement.value;
-
+    hideHomePage();
     //GRAB ZIP CODE
-    //console.log("submitted " + zipCode);
+    getStateZip(zipCode);
+
 }
 
 
