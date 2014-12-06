@@ -5,6 +5,8 @@ var congressKey = "/current.json?api-key=7ed7b4fc1a55c0fe13d052fd45b182e8:8:6355
 var CKey = "7ed7b4fc1a55c0fe13d052fd45b182e8:8:63556623";
 var AKey = "03d4d30364e0db2f88e8411bbf771227:0:63556623";
 var reps = {};
+var numReps = 0;
+var numDems = 0;
 var repsLoaded = false;
 
 setStates();
@@ -130,6 +132,8 @@ function getStateZip(zip){
 
 // operating unit to control shit DONE, DOUBLE CHECK
 function getLegislators(statename, iden, district){
+	numDems=0;
+	numReps=0;
 	if (repsLoaded == false) {
 		fillReps(statename, iden, district);
 	} else {
@@ -169,11 +173,32 @@ function getStateSenate(statename, id, district){
 
 //barebones for this page
 function showStateInfo(statename, id){
-	html = "<h1 col-xs-12 col-sm-12 col-md-12>" + statename + " - " + id;
-	html += '</h2><div class = "col-xs-12 col-sm-6 col-md-6 senators"><h4>';
+	html = "<h1 col-xs-12 col-sm-12 col-md-12>" + statename + " - " + id + "</h1>";
+	html += '<div class = "col-xs-12 col-sm-9 col-sm-offset-1 col-md-8 col-md-offset-2 party-count"><canvas id="partyCount" width="400" height="400"></canvas></div>';
+	html += '<div class = "col-xs-12 col-sm-6 col-md-6 senators"><h4>';
 	html += 'Senators</h4></div><div class="col-xs-12 col-sm-6 col-md-6 house"><h4>Representatives</h4></div>';
 	$("#info").html(html);
 	setMarginHeight();
+}
+
+
+function showPartyCount(){
+	var ctx = document.getElementById("partyCount").getContext("2d");
+	var data = [
+	    {
+	        value: numReps,
+	        color:"#F7464A",
+	        highlight: "#FF5A5E",
+	        label: "Republican"
+	    },
+	    {
+	        value: numDems,
+	        color: "#46BFBD",
+	        highlight: "#5AD3D1",
+	        label: "Democratic"
+	    }
+	]
+	var myDoughnutChart = new Chart(ctx).Doughnut(data, {responsive : true});
 }
 
 
@@ -187,6 +212,11 @@ function showLegislators(results, chamber){
 		};
 		var id = results[i].id;
 		var party = results[i].party;
+		if (party == "D") {
+			numDems++;
+		} else {
+			numReps++;
+		};
 		var district = results[i].district;
 		html = '<div class="member"><p onclick="hide(); showRepPage(';
 		html += "'" + CKey+ "' , '" + AKey + "' , '" + id + "'" + ')">' + name + ' - ';
@@ -197,6 +227,9 @@ function showLegislators(results, chamber){
 		} else {
 			$(".house").append(html);
 		} 
+	};
+	if (chamber == "senate") {
+		showPartyCount();
 	};
 }
 

@@ -74,6 +74,8 @@ img {
     width: 50%;
 }
 
+
+
 /* HOMEPAGE CSS */
 
 #blankspace{
@@ -107,6 +109,7 @@ img {
     color:black;
 }
 
+/*EDIT CAROUSEL LILLY*/
 .carousel-caption{
     width:940px;
     height:100%;
@@ -122,4 +125,16 @@ img {
 
 #zipSubmit{
     padding-top: 7px;
+}
+
+#control-label{
+    padding: 0;
+}
+
+
+
+
+/* STATE CSS */
+.party-count{
+    width: 25%;
 }

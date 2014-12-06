@@ -138,11 +138,11 @@ function hideHomePage() {
 
 function createZipSubmitButton(){
     var zipSubmitDiv = document.createElement('div');
-    zipSubmitDiv.setAttribute("class", "col-sm-3 col-md-3 col-lg-3 col-offset-9");
+    zipSubmitDiv.setAttribute("class", "col-xs-12 col-sm-3 col-md-3 col-lg-3 col-offset-9");
     zipSubmitDiv.setAttribute("id", "zipSubmit");
 
     var submitButton = document.createElement('button');
-    submitButton.setAttribute("class", "btn btn-default");
+    submitButton.setAttribute("class", "col-xs-12 btn btn-default");
     submitButton.setAttribute("id", "submitButton");
     submitButton.textContent = "Submit";
 
