@@ -29,6 +29,8 @@ function getRecentHouseBills(){
 
 function showSenateBills(json){
     var recentBillsList = document.createElement('ol');
+    $("#recentSenateBills").html("");
+
     for(var i = 0; i < json.results[0].bills.length; i++){
         var billListElement = document.createElement('li');
         var billDiv = document.createElement('div');
@@ -54,6 +56,7 @@ function showSenateBills(json){
 
 function showHouseBills(json){
     var recentBillsList = document.createElement('ol');
+    $("#recentHouseBills").html("");
 
     for(var i = 0; i < json.results[0].bills.length; i++){
         var billListElement = document.createElement('li');
@@ -148,6 +151,7 @@ function createZipSubmitButton(){
 
     var formgroup = document.getElementById("formGroup");
     $(zipSubmitDiv).append(submitButton);
+    $('#submitButton').remove();
     $(formgroup).append(zipSubmitDiv);
 }
 
