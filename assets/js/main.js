@@ -3,7 +3,8 @@ $(document).ready(function() {
         CONGRESS_API_KEY = '7ed7b4fc1a55c0fe13d052fd45b182e8:8:63556623';
 
     linkInit(CONGRESS_API_KEY, ARTICLE_API_KEY);
-    loadRepPage(CONGRESS_API_KEY, ARTICLE_API_KEY, 'B001277');
+    showHomePage();
+    //showRepPage(CONGRESS_API_KEY, ARTICLE_API_KEY, 'B001277');
 });
 
 function linkInit(C_KEY, A_KEY) {
@@ -130,6 +131,11 @@ function showRelatedArticles(A_KEY, keywords) {
 
 function billURIToID(bill_uri) {
     return bill_uri.split('/').pop().replace('.json', '');
+}
+
+function billURIToCongress(bill_uri) {
+    var parts =  bill_uri.split('/');
+    return parts[parts.length - 3];
 }
 
 function clearContentContainer() {

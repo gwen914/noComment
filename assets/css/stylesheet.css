@@ -1,3 +1,4 @@
+/* REPRESENTATIVE CSS */
 h1 {
 /*    position: absolute;
     top: 100px;
@@ -60,4 +61,54 @@ img {
 #co-sponsored {
     float: left;
     width: 50%;
+}
+
+/* HOMEPAGE CSS */
+
+#blankspace{
+    height:45px;
+}
+
+#billDirectionsDiv{
+    padding-bottom: 10px;
+}
+
+
+.container{
+    background-color: white;
+    display: none;
+}
+
+
+.jumbotron{
+    background-color: transparent;
+    padding-top: 15px;
+    color:white;
+    border-color: gray;
+}
+
+.carousel {
+    /*pause: false;*/
+}
+
+.carousel-caption h3{
+    /*height:370px;*/
+    color:black;
+}
+
+.carousel-caption{
+    width:940px;
+    height:100%;
+    bottom: 0px;
+    background-color: rgba(255,255,255, 0.5);
+    left:0%;
+    right:0%;
+}
+
+.inner-carousel-caption{
+    opacity: 1;
+}
+
+#zipSubmit{
+    padding-top: 7px;
 }
