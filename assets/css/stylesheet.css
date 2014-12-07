@@ -1,14 +1,14 @@
 /* REPRESENTATIVE CSS */
+body{
+  font-family: "Lato", Calibri, sans-serif;
+}
+
 h1 {
-/*    position: absolute;
-    top: 100px;
-    width: 40%;*/
     text-align: center;
-/*    margin-left: 30%;*/
+    font-family: 'Playfair Display SC', serif;
 }
 
 #back{
-  font-family: "Roboto", Calibri, sans-serif;
   position: fixed;
   top: 5%;
   left: 3%;
@@ -136,5 +136,6 @@ img {
 
 /* STATE CSS */
 .party-count{
-    width: 25%;
+    width: 100%;
 }
+

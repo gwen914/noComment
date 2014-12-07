@@ -59,12 +59,13 @@ var uStatePaths=[
     uStates.draw = function(id, data, toolTip){
         function mouseOver(d){
             d3.select("#stateNameTag").transition().duration(200).style("opacity", .9);
-
             d3.select("#stateNameTag").html(toolTip(d.n));
+            d3.select(this).style("fill", "gray");
         }
 
         function mouseOut(){
             d3.select("#stateNameTag").transition().duration(500).style("opacity", 0);
+            d3.select(this).style("fill", "lightGray");
         }
 
         function click(d){
@@ -78,7 +79,7 @@ var uStatePaths=[
 
         d3.select(id).selectAll(".state")
             .data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
-            .style("fill", "lightGreen")
+            .style("fill", "lightGray")
             .style("stroke", "white")
             .on("mouseover", mouseOver)
             .on("mouseout", mouseOut)

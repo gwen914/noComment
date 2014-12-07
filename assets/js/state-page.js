@@ -174,9 +174,9 @@ function getStateSenate(statename, id, district){
 //barebones for this page
 function showStateInfo(statename, id){
 	html = "<h1 col-xs-12 col-sm-12 col-md-12>" + statename + " - " + id + "</h1>";
-	html += '<div class = "col-xs-12 col-sm-9 col-sm-offset-1 col-md-8 col-md-offset-2 party-count"><canvas id="partyCount" width="400" height="400"></canvas></div>';
-	html += '<div class = "col-xs-12 col-sm-6 col-md-6 senators"><h4>';
-	html += 'Senators</h4></div><div class="col-xs-12 col-sm-6 col-md-6 house"><h4>Representatives</h4></div>';
+	html += '<div class = "col-xs-12 col-sm-12 col-md-12 party-count"><canvas id="partyCount" height="100%"></canvas></div>';
+	html += '<div class = "col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 senators"><h4>';
+	html += 'Senators</h4></div><div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 house"><h4>Representatives</h4></div>';
 	$("#info").html(html);
 	setMarginHeight();
 }

@@ -1,6 +1,16 @@
 var congress_API_Key = "7ed7b4fc1a55c0fe13d052fd45b182e8:8:63556623";
 var article_API_Key = "03d4d30364e0db2f88e8411bbf771227:0:63556623";
 
+
+$(window).on("resize", function() {
+    var aspect = 960 / 500,
+    chart = $("#statesvg");
+    var targetWidth = chart.parent().width();
+    chart.attr("width", targetWidth);
+    chart.attr("height", targetWidth / aspect);
+});
+
+
 function stateNameHtml(n){  /* function to create html content string in tooltip div. */
         return "<p>"+n+"</p>"
 }
@@ -138,7 +148,7 @@ function hideHomePage() {
 
 function createZipSubmitButton(){
     var zipSubmitDiv = document.createElement('div');
-    zipSubmitDiv.setAttribute("class", "col-xs-12 col-sm-3 col-md-3 col-lg-3 col-offset-9");
+    zipSubmitDiv.setAttribute("class", "col-xs-12 col-sm-3 col-md-3 col-lg-3");
     zipSubmitDiv.setAttribute("id", "zipSubmit");
 
     var submitButton = document.createElement('button');
@@ -151,7 +161,8 @@ function createZipSubmitButton(){
 
     var formgroup = document.getElementById("formGroup");
     $(zipSubmitDiv).append(submitButton);
-    $('#submitButton').remove();
+    $('#zipSubmit').remove();
+
     $(formgroup).append(zipSubmitDiv);
 }
 
