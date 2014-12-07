@@ -203,9 +203,9 @@
 <!-- dummy bill -->
 <div id="dummyBill" class="hide">
     <div class="bill">
-        <div class="page-header">
+        <div class="page-header col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <h1 class="text-center">
-                Bill <span class="billCode"></span>
+                Bill <span class="billCode"></span><br>
                 <small>
                     sponsored by
                     <a class="billSponsor" href="#"></a>
@@ -214,7 +214,7 @@
                 <span class="billID hide"></span>
             </h1>
         </div>
-        <p class="lead">
+        <p class="lead col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             Introduced
             <strong class="billIntroducedDate"></strong>
             in Congress #<span class="billCongress"></span>
@@ -223,16 +223,18 @@
             committee.
             <span class="billTitle"></span>
         </p>
-        <h4>Congress Actions:</h4>
-        <ul class="billActions">
-            <li class="action hide">
-                <span class="actionDate"></span>:
-                <span class="actionText"></span>
-            </li>
-            <li class="noActionsText hide">No actions listed.</li>
-        </ul>
-        <div class="relatedBills">
-            <h4>Related Bills:</h4>
+        <div class = "col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 billActContainer">
+          <h3>Congress Actions:</h3>
+          <ul class="billActions">
+              <li class="action hide">
+                  <span class="actionDate"></span>:
+                  <span class="actionText"></span>
+              </li>
+              <li class="noActionsText hide">No actions listed.</li>
+          </ul>
+        </div>
+        <div class="relatedBills col-xs-12 col-sm-4 col-sm-offset-2 col-md-3 col-md-offset-3">
+            <h3>Related Bills:</h3>
             <ul class="relatedBills">
                 <li class="relatedBill hide">
                     <a class="billLink" href="#"></a>
@@ -245,8 +247,8 @@
                 <li class="noRelatedText hide">No related bills found.</li>
             </ul>
         </div>
-        <div class="relatedArticles">
-            <h4>Related Articles:</h4>
+        <div class="relatedArticles relatedArtSec col-xs-12 col-sm-4 col-md-3">
+            <h3>Related Articles:</h3>
             <ul class="relatedArticles">
                 <li class="relatedArticle hide">
                     <a class="relatedArticleLink" href="#" target="_blank"></a>

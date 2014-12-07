@@ -22,44 +22,6 @@ a:hover{
 }
 
 
-/* REPRESENTATIVE CSS */
-
-#bills, #facts, #contact {
-    margin-top: 2em;
-}
-
-.section {
-    padding: 0 3%;
-}
-
-#contact ul li {
-    display: inline-block;
-    padding-right: 15px;
-}
-
-img {
-    position: relative;
-}
-
-#page {
-    position: absolute;
-    top: 10%;
-    background-color: white !important;
-    border-radius: 25px;
-    border: 1px black dotted;
-    margin-bottom: 10em;
-}
-
-#lists {
-    width: 100%;
-    position: relative;
-}
-
-#sponsored li{
-    padding: .1em 0;
-}
-
-
 /* HOMEPAGE CSS */
 
 #blankspace{
@@ -193,3 +155,61 @@ li div .btn:hover, li div .btn-info:hover{
 
 
 
+/* REPRESENTATIVE CSS */
+
+#bills, #facts, #contact {
+    margin-top: 2em;
+}
+
+.section {
+    padding: 0 3%;
+}
+
+#contact ul li {
+    display: inline-block;
+    padding-right: 15px;
+}
+
+#capitalHill {
+    position: relative;
+    opacity: .85;
+}
+
+#page {
+    position: absolute;
+    top: 10%;
+    background-color: white !important;
+    border-radius: 25px;
+    border: 1px black dotted;
+    margin-bottom: 10em;
+}
+
+#lists {
+    width: 100%;
+    position: relative;
+}
+
+#sponsored li{
+    padding: .1em 0;
+}
+
+
+
+/* BILL PAGE CSS */
+.bill{
+    background: white;
+}
+
+.relatedArtSec{
+    margin-bottom: 5em;
+}
+
+.billActContainer{
+    margin-bottom: 2em;
+}
+
+.billActions{
+    height: 20em;
+    overflow: scroll;
+    border: 1px gray dotted;
+}
