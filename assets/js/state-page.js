@@ -7,6 +7,7 @@ var AKey = "03d4d30364e0db2f88e8411bbf771227:0:63556623";
 var reps = {};
 var numReps = 0;
 var numDems = 0;
+var numOther = 0;
 var repsLoaded = false;
 
 setStates();
@@ -134,6 +135,7 @@ function getStateZip(zip){
 function getLegislators(statename, iden, district, zip){
 	numDems=0;
 	numReps=0;
+	numOther=0;
 	if (repsLoaded == false) {
 		fillReps(statename, iden, district, zip);
 	} else {
@@ -200,6 +202,12 @@ function showPartyCount(){
 	        color: "#46BFBD",
 	        highlight: "#5AD3D1",
 	        label: "Democrat"
+	    },
+	    {
+	    	value: numOther,
+	        color: "#FDB45C",
+	        highlight: "#FFC870",
+	        label: "Other"
 	    }
 	]
 	var myDoughnutChart = new Chart(ctx).Doughnut(data, {responsive : true});
@@ -218,8 +226,10 @@ function showLegislators(results, chamber){
 		var party = results[i].party;
 		if (party == "D") {
 			numDems++;
-		} else {
+		} else if (party == "R") {
 			numReps++;
+		} else {
+			numOther++;
 		};
 		var district = results[i].district;
 		html = '<div class="member"><a><p onclick="hide(); showRepPage(';
