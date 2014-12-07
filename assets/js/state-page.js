@@ -176,7 +176,8 @@ function showStateInfo(statename, id){
 	html = "<h1 class = 'stateName text-center col-xs-12 col-sm-12 col-md-12'>" + statename + " - " + id + "</h1>";
 	html += '<div class = "col-xs-12 col-sm-12 col-md-12 party-count"><canvas id="partyCount" height="100%"></canvas></div>';
 	html += '<div class = "col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 senators text-center"><h3>';
-	html += 'Senators</h3></div><div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 house text-center"><h3>Representatives</h3></div>';
+	html += 'Senators</h3></div><div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 house text-center"><h3>Representatives</h3>'
+	html += '<div class = "houseRepDiv"></div></div>';
 	$("#info").html(html);
 	setMarginHeight();
 }
@@ -225,7 +226,7 @@ function showLegislators(results, chamber){
 		if (chamber == 'senate') {
 			$(".senators").append(html);
 		} else {
-			$(".house").append(html);
+			$(".houseRepDiv").append(html);
 		} 
 	};
 	if (chamber == "senate") {

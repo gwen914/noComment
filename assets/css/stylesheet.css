@@ -137,8 +137,12 @@ li div .btn:hover, li div .btn-info:hover{
     padding: 0;
     border: 1px solid gray;
     height: 15em;
-    overflow: scroll;
     margin-bottom: 10em;
+}
+
+.houseRepDiv{
+    overflow: scroll;
+    height: 10em;
 }
 
 .senators{
