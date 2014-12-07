@@ -216,4 +216,5 @@ li div .btn:hover, li div .btn-info:hover{
     height: 20em;
     overflow: scroll;
     border: 1px gray dotted;
+    background-color: white;
 }

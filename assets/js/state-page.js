@@ -195,7 +195,7 @@ function showPartyCount(){
 	        value: numDems,
 	        color: "#46BFBD",
 	        highlight: "#5AD3D1",
-	        label: "Democratic"
+	        label: "Democrat"
 	    }
 	]
 	var myDoughnutChart = new Chart(ctx).Doughnut(data, {responsive : true});
