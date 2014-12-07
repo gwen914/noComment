@@ -70,7 +70,7 @@ function setStates(){
 	reps["MP"] = [];
 }
 
-function fillReps(statename, iden, district){
+function fillReps(statename, iden, district, zip){
 	var URI = 'http://api.nytimes.com/svc/politics/v3/us/legislative/congress/113/house/members/current.json?api-key=';
 	URI += CKey;
 	$.ajax({
@@ -84,7 +84,7 @@ function fillReps(statename, iden, district){
 	    	};
 	    	console.log("Done loading state reps!");
 	    	repsLoaded = true;
-	    	showStateInfo(statename, iden);
+	    	showStateInfo(statename, iden, zip);
 			getStateSenate(statename, iden, district);
 			var members = reps[iden];
 			if (district[0] == 0) {
@@ -125,19 +125,19 @@ function getStateZip(zip){
 	    		statename = members[i].state_name;
 	    		id = members[i].state;
 	    	};
-	    	getLegislators(statename, id, district)
+	    	getLegislators(statename, id, district, zip)
 	    }
 	});
 }
 
 // operating unit to control shit DONE, DOUBLE CHECK
-function getLegislators(statename, iden, district){
+function getLegislators(statename, iden, district, zip){
 	numDems=0;
 	numReps=0;
 	if (repsLoaded == false) {
-		fillReps(statename, iden, district);
+		fillReps(statename, iden, district, zip);
 	} else {
-		showStateInfo(statename, iden);
+		showStateInfo(statename, iden, zip);
 		getStateSenate(statename, iden, district);
 		var members = reps[iden];
 		if (district[0] == 0) {
@@ -172,8 +172,11 @@ function getStateSenate(statename, id, district){
 
 
 //barebones for this page
-function showStateInfo(statename, id){
-	html = "<h1 class = 'stateName text-center col-xs-12 col-sm-12 col-md-12'>" + statename + " - " + id + "</h1>";
+function showStateInfo(statename, id, zip){
+	html = "<h1 class = 'text-center col-xs-12 col-sm-12 col-md-12'>" + statename + " - " + id + "</h1>";
+	if (zip != 0) {
+		html += "<h2 class = 'stateZip text-center col-xs-12 col-sm-12 col-md-12'> Zip: " + zip + "</h2>";
+	};
 	html += '<div class = "col-xs-12 col-sm-12 col-md-12 party-count"><canvas id="partyCount" height="100%"></canvas></div>';
 	html += '<div class = "col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 senators text-center"><h3>';
 	html += 'Senators</h3></div><div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 house text-center"><h3>Representatives</h3>'

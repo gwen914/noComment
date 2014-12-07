@@ -74,7 +74,7 @@ var uStatePaths=[
             var stateName = d.n;
             var stateCode = d.id;
             hideHomePage();
-            getLegislators(stateName, stateCode, [0]);
+            getLegislators(stateName, stateCode, [0], 0);
         }
 
         d3.select(id).selectAll(".state")
