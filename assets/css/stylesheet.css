@@ -21,6 +21,10 @@ a:hover{
   z-index: 101;
 }
 
+#back:hover{
+    cursor: pointer;
+}
+
 
 /* HOMEPAGE CSS */
 
@@ -158,7 +162,7 @@ li div .btn:hover, li div .btn-info:hover{
 /* REPRESENTATIVE CSS */
 
 #bills, #facts, #contact {
-    margin-top: 2em;
+    margin-top: 3em;
 }
 
 .section {
