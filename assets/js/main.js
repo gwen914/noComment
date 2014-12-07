@@ -4,7 +4,23 @@ $(document).ready(function() {
 
     linkInit(CONGRESS_API_KEY, ARTICLE_API_KEY);
     showHomePage();
+
+
+    //$('a[href*=#]:not([href=#])').click(function() {
+    $('.goToSection').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 800);
+            return false;
+          }
+        }
+    });
 });
+
 
 function linkInit(C_KEY, A_KEY) {
     $('.billSponsor').click(function() {

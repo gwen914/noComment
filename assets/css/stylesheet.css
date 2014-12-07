@@ -1,12 +1,14 @@
 /* REPRESENTATIVE CSS */
-body{
+body, #homepage{
   font-family: "Lato", Calibri, sans-serif;
+  background-color: #FCFCFC;
 }
 
-h1 {
+h1, h2, h3{
     text-align: center;
     font-family: 'Playfair Display SC', serif;
 }
+
 
 #back{
   position: fixed;
@@ -100,31 +102,20 @@ img {
     border-color: gray;
 }
 
-.carousel {
-    /*pause: false;*/
+.carousel{
+    margin-bottom: 10em;
+}
+
+.goToSection{
+    color: white;
+}
+
+.goToSection:hover{
+    color: black;
 }
 
 .carousel-control{
     z-index: 100;
-}
-
-.carousel-caption h3{
-    /*height:370px;*/
-    color:black;
-}
-
-/*EDIT CAROUSEL LILLY*/
-.carousel-caption{
-    width:940px;
-    height:100%;
-    bottom: 0px;
-    /*background-color: rgba(255,255,255, 0.5);*/
-    left:0%;
-    right:0%;
-}
-
-.inner-carousel-caption{
-    opacity: 1;
 }
 
 #zipSubmit{
@@ -135,11 +126,83 @@ img {
     padding: 0;
 }
 
+#toolTipAndMap{
+    margin-bottom: 2em;
+}
+
+#stateNameTag{
+    font-size: 2em;
+    color: #728D9E;
+}
+
+.splitter{
+    font-size: 1.5em;
+    font-family: "Rock Salt", sans-serif;
+    color: #690000;
+    margin: 2em 0;
+    font-style: italic;
+}
+
+#recentBillsDiv{
+    margin-top: 10em;
+}
+
+#recentBillsDiv h3{
+    margin-bottom: 1em;
+}
+
+.btn, .btn-info{
+    background-color: transparent;
+    color: black;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.btn:hover, .btn-info:hover{
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
 
 
 
 /* STATE CSS */
 .party-count{
     width: 100%;
+    margin-bottom: 2em;
 }
+
+.statename{
+    margin-bottom: 1em;
+}
+
+.senators, .house{
+    background: white;
+    padding: 0;
+    border: 1px solid gray;
+    height: 15em;
+    overflow: scroll;
+    margin-bottom: 10em;
+}
+
+.senators{
+    margin-bottom: 2em;
+}
+
+.senators h3, .house h3{
+    padding: .5em 0;
+    background: gray;
+    margin-top: 0;
+}
+
+.senators p, .house p{
+    padding: 0 1em;
+    cursor: pointer;
+}
+
+
 

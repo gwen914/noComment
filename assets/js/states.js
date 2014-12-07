@@ -60,7 +60,7 @@ var uStatePaths=[
         function mouseOver(d){
             d3.select("#stateNameTag").transition().duration(200).style("opacity", .9);
             d3.select("#stateNameTag").html(toolTip(d.n));
-            d3.select(this).style("fill", "gray");
+            d3.select(this).style("fill", "#728D9E");
         }
 
         function mouseOut(){

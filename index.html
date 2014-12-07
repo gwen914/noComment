@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/stylesheet.css" media="screen">
     <link rel="stylesheet" href= "assets/css/font-awesome-4.2.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="assets/images/NYTDevLogo.png" type="image/x-icon" />
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC|Lato|Roboto|Forum' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC|Lato|Roboto|Forum|Rock+Salt' rel='stylesheet' type='text/css'>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
@@ -55,22 +55,20 @@
         <div class="carousel-inner">
           <div class="item active">
             <img src="assets/images/Capital.jpg" alt="Congress1">
-              <div class="carousel-caption">
-                <div class="inner-carousel-caption">
-                  <button class="btn btn-info" id="scrollMapButton">View state-wide political information</button>
-                </div>
-              </div>
+            <div class="carousel-caption">
+                <h1><a class = "goToSection" href="#toolTipAndMap">MAP</a></h1>
+            </div>
           </div>
           <div class="item">
             <img src="assets/images/Capital.jpg" alt="Congress2">
             <div class="carousel-caption">
-               <button class="btn btn-info" id="scrollZipButton">View disctrict-wide political information</button>
+               <h1><a class = "goToSection" href="#zipCodeDiv">ZIP</a></h1>
             </div>
           </div>
-         <div class="item">
+          <div class="item">
             <img src="assets/images/Capital.jpg"  alt="Congress3">
             <div class="carousel-caption">
-                <button class="btn btn-info" id="scrollBillsButton">View recent major bills</button>
+                <h1><a class = "goToSection" href="#recentBillsDiv">BILLS</a></h1>
             </div>
           </div>
         </div>
@@ -85,28 +83,12 @@
       </div>
       <!-- End Carousel -->
 
-      <!-- map div-->
-      <div id="toolTipAndMap">
-        <div class="row" id="blankspace"><hr style="border-color:lightGrey"></div>
-         <!-- map directions -->
-        <div id="mapDirectionsDiv" class="text-center">
-          <h4 class="text-center">Click on a state to view more information</h4>
-        </div>
-        <!-- div to hold tooltip of the state name. -->
-        <div id="stateNameTag" class="text-center"></div>
 
-        <!-- svg to hold the map. -->
-        <div class="text-center" id="mapDiv">
-          <svg width="960" height="600" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid" id="statesvg"></svg>
-        </div>
-      </div>
-      <!-- end map div -->
-
+      <div class="row" id="blankspace"><hr style="border-color:lightGrey"></div>
       <!-- zipcode div -->
       <div id="zipCodeDiv">
-        <div class="row" id="blankspace"><hr style="border-color:lightGrey"></div>
         <div id="zipDirectionsDiv" class="text-center">
-          <h4 class="text-center">Enter your zip code to view district-wide information</h4>
+          <h3 class="text-center">Enter a zip code to view district-wide information</h3>
         </div>
         <form class="form-horizontal" role="form" id="form">
           <div class="form-group" id="formGroup">
@@ -119,19 +101,38 @@
       </div>
       <!-- end zipcode div -->
 
+      <div class = "text-center splitter">- OR -</div>
+
+      <!-- map div-->
+      <div id="toolTipAndMap">
+         <!-- map directions -->
+        <div id="mapDirectionsDiv" class="text-center">
+          <h3 class="text-center">Click on a state to view state-wide information</h3>
+        </div>
+        <!-- div to hold tooltip of the state name. -->
+        <div id="stateNameTag" class="text-center"></div>
+
+        <!-- svg to hold the map. -->
+        <div class="text-center" id="mapDiv">
+          <svg width="960" height="600" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid" id="statesvg"></svg>
+        </div>
+      </div>
+      <!-- end map div -->
+      <div class="row" id="blankspace"><hr style="border-color:lightGrey"></div>
+
+
+
 
       <!-- recent bills div  -->
       <div id="recentBillsDiv">
-        <div class="row" id="blankspace"><hr style="border-color:lightGrey"></div>
-        <div id="billDirectionsDiv" class="row">
-          <h4 class="text-center">Click on a recent bill to view more information</h4>
+          <h3 class="text-center">Click on a recent bill to view more information</h3>
         </div>
 
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Recent major bills passed by the Sentate</a>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Recent major bills passed by the Senate</a>
               </h4>
             </div>
             <div id="collapse1" class="panel-collapse collapse in">
@@ -145,7 +146,7 @@
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Recent major bills passed by the House</a>
               </h4>
             </div>
-            <div id="collapse2" class="panel-collapse collapse">
+            <div id="collapse2" class="panel-collapse collapse in">
               <div class="panel-body" id="recentHouseBills">
               </div>
             </div>

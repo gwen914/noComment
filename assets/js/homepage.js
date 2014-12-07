@@ -80,7 +80,6 @@ function showHouseBills(json){
         $(billDiv).append(billTitle);
         $(billListElement).append(billDiv);
         $(recentBillsList).append(billListElement);
-        $(recentBillsList).append("<br>");
         $("#recentHouseBills").append(recentBillsList);
 
         (function (bills, i) {
@@ -119,21 +118,6 @@ function showHomePage(){
     $('ol.carousel-indicators  li').on("click",function(){
         $('ol.carousel-indicators li.active').removeClass("active");
         $(this).addClass("active");
-    });
-
-    $("#scrollMapButton").click(function(){
-        var yPosition = $("#toolTipAndMap").position().top;
-        window.scrollTo(2, yPosition);
-    });
-
-    $("#scrollZipButton").click(function(){
-        var yPosition = $("#zipCodeDiv").position().top;
-        window.scrollTo(2, yPosition);
-    });
-
-    $("#scrollBillsButton").click(function(){
-        var yPosition = $("#recentBillsDiv").position().top;
-        window.scrollTo(2, yPosition);
     });
 
     createZipSubmitButton();
