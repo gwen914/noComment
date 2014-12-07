@@ -173,10 +173,10 @@ function getStateSenate(statename, id, district){
 
 //barebones for this page
 function showStateInfo(statename, id){
-	html = "<h1 class = 'stateName col-xs-12 col-sm-12 col-md-12'>" + statename + " - " + id + "</h1>";
+	html = "<h1 class = 'stateName text-center col-xs-12 col-sm-12 col-md-12'>" + statename + " - " + id + "</h1>";
 	html += '<div class = "col-xs-12 col-sm-12 col-md-12 party-count"><canvas id="partyCount" height="100%"></canvas></div>';
-	html += '<div class = "col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 senators"><h3>';
-	html += 'Senators</h3></div><div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 house"><h3>Representatives</h3></div>';
+	html += '<div class = "col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 senators text-center"><h3>';
+	html += 'Senators</h3></div><div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 house text-center"><h3>Representatives</h3></div>';
 	$("#info").html(html);
 	setMarginHeight();
 }
@@ -218,9 +218,9 @@ function showLegislators(results, chamber){
 			numReps++;
 		};
 		var district = results[i].district;
-		html = '<div class="member"><p onclick="hide(); showRepPage(';
+		html = '<div class="member"><a><p onclick="hide(); showRepPage(';
 		html += "'" + CKey+ "' , '" + AKey + "' , '" + id + "'" + ')">' + name + ' - ';
-		html += party + '</p></div>'
+		html += party + '</p></a></div>'
 
 		if (chamber == 'senate') {
 			$(".senators").append(html);

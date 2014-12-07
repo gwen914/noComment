@@ -30,7 +30,7 @@
 
     <div id="back" onclick="showHomePage();hide();hideBillPage();hideRepPage();">&#8592; Back to Homepage</div>
 
-     <!-- homepage container -->
+     <!-- HOME PAGE CONTAINER -->
     <div id="homepage" class="container">
 
       <!-- page Header -->
@@ -120,9 +120,6 @@
       <!-- end map div -->
       <div class="row" id="blankspace"><hr style="border-color:lightGrey"></div>
 
-
-
-
       <!-- recent bills div  -->
       <div id="recentBillsDiv">
           <h3 class="text-center">Click on a recent bill to view more information</h3>
@@ -152,52 +149,46 @@
             </div>
           </div>
         </div>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
     <!-- end recent bills div -->
   </div>
   <!-- end container div-->
 
 
-  <!-- state page container-->
+  <!-- STATE PAGE CONTAINER-->
   <div id="info"></div>
 
 
-    <!-- representative container -->
+    <!-- REPRESENTATIVE PAGE CONTAINER -->
     <div id="repPage" class="hide">
         <img id = "capitalHill" width='100%' src = "assets/images/capital_hill.jpg">
-        <div id="page">
-            <h1 id="name"><span id="firstName"></span> <span id="lastName"></span></h1>
+        <div id="page" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h1 id="name" class="text-center"><span id="firstName"></span> <span id="lastName"></span></h1>
             <div id = "facts" class="section">
-                <p class="subtitle">Basic Facts</p>
+                <h3>Basic Facts</h3>
                 <div id="lists">
-                    <div class="list">
-                        <p>Chamber: <span id="chamber"></span></p>
-                        <p>State: <span id="state"></span></p>
-                        <p>Party: <span id="party"></span></p>
+                    <div class="list col-xs-12 col-sm-6 col-md-6">
+                        <p><strong>Chamber: </strong><span id="chamber"></span></p>
+                        <p><strong>State: </strong><a><span id="state"></span></a></p>
+                        <p><strong>Party: </strong><span id="party"></span></p>
                     </div>
-                    <div class="list">
-                        <p>Seniority: <span id="seniority"></span></p>
-                        <p>Votes with party: <span id="votes-pct"></span>%</p>
-                        <p>Missed votes: <span id="missed-pct"></span>%</p>
+                    <div class="list col-xs-12 col-sm-6 col-md-6">
+                        <p><strong>Seniority: </strong><span id="seniority"></span></p>
+                        <p><strong>Votes with party: </strong><span id="votes-pct"></span>%</p>
+                        <p><strong>Missed votes: </strong><span id="missed-pct"></span>%</p>
                     </div>
                 </div>
-                <p>Committees served on: <span id="committees-names"></span></p>
+                <p><strong>Committees served on: </strong><span id="committees-names"></span></p>
             </div>
             <div id = "bills" class="section">
                 <div id="sponsored">
-                    <p>Bills Sponsored by Congressperson</p>
+                    <h3>Bills Sponsored by Congressperson</h3>
                     <ul id="sponsored-list">
                     </ul>
                 </div>
-                <div id="co-sponsored">
-                    <!--<p>Bill Co-Sponsored by Congressperson</p>
-                    <ul id="co-sponsored-list">
-                    </ul>-->
-                </div>
             </div>
             <div id="contact" class="section">
+            <h3>Contact Information</h3>
                 <ul class="fa-ul">
                     <li><i class="fa fa-link fa-2x"></i></li>
                     <li><i class="fa fa-facebook fa-2x"></i></li>
@@ -213,7 +204,7 @@
 <div id="dummyBill" class="hide">
     <div class="bill">
         <div class="page-header">
-            <h1>
+            <h1 class="text-center">
                 Bill <span class="billCode"></span>
                 <small>
                     sponsored by

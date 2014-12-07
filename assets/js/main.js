@@ -189,7 +189,6 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
             };
         });
         getLegislators(state, current_role.state, [0]);
-        console.log("HIII");
     });
     document.getElementById('party').innerHTML = current_role.party == 'D' ? 'Democrat' : 'Republican';
     document.getElementById('seniority').innerHTML = current_role.seniority;

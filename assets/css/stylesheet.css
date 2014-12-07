@@ -1,14 +1,15 @@
-/* REPRESENTATIVE CSS */
 body, #homepage{
-  font-family: "Lato", Calibri, sans-serif;
+  
   background-color: #FCFCFC;
 }
 
 h1, h2, h3{
-    text-align: center;
     font-family: 'Playfair Display SC', serif;
 }
 
+a:hover{
+    cursor:pointer;
+}
 
 #back{
   position: fixed;
@@ -20,21 +21,15 @@ h1, h2, h3{
   z-index: 101;
 }
 
-.subtitle {
-    font-size: 20px;
-    text-decoration: underline;
-}
 
-#bills {
-    padding-top: 20px;
-}
+/* REPRESENTATIVE CSS */
 
-#facts {
-    margin-top: 30px;
+#bills, #facts, #contact {
+    margin-top: 2em;
 }
 
 .section {
-    padding-left: 10%;
+    padding: 0 3%;
 }
 
 #contact ul li {
@@ -48,12 +43,11 @@ img {
 
 #page {
     position: absolute;
-    top: 200px;
-    width: 60%;
+    top: 10%;
     background-color: white !important;
-    margin-left: 20%;
-    margin-right: 20%;
     border-radius: 25px;
+    border: 1px black dotted;
+    margin-bottom: 10em;
 }
 
 #lists {
@@ -61,21 +55,9 @@ img {
     position: relative;
 }
 
-.list {
-    float: left;
-    width: 50%;
+#sponsored li{
+    padding: .1em 0;
 }
-
-#sponsored {
-    float: left;
-    width: 50%;
-}
-
-#co-sponsored {
-    float: left;
-    width: 50%;
-}
-
 
 
 /* HOMEPAGE CSS */
@@ -151,7 +133,7 @@ img {
     margin-bottom: 1em;
 }
 
-.btn, .btn-info{
+li div .btn, li div .btn-info{
     background-color: transparent;
     color: black;
     margin: 0;
@@ -159,13 +141,17 @@ img {
     border: none;
 }
 
-.btn:hover, .btn-info:hover{
+li div .btn:hover, li div .btn-info:hover{
     cursor: pointer;
     background-color: transparent;
     color: black;
     margin: 0;
     padding: 0;
     border: none;
+}
+
+#accordion{
+    margin-bottom: 15em;
 }
 
 
@@ -195,7 +181,8 @@ img {
 
 .senators h3, .house h3{
     padding: .5em 0;
-    background: gray;
+    background: #CCCCCC;
+    border-bottom: 1px solid gray;
     margin-top: 0;
 }
 
