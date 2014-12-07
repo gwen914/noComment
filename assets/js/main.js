@@ -188,7 +188,7 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
                 state = item.n;
             };
         });
-        getLegislators(state, current_role.state, [0]);
+        getLegislators(state, current_role.state, [0], 0);
     });
     document.getElementById('party').innerHTML = current_role.party == 'D' ? 'Democrat' : 'Republican';
     document.getElementById('seniority').innerHTML = current_role.seniority;
