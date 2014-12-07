@@ -124,10 +124,13 @@ function showHomePage(){
 
     getRecentSenateBills();
     getRecentHouseBills();
+
+    $("#back").css("display", "none");
 }
 
 function hideHomePage() {
     $(".container").hide();
+    $("#back").css("display", "block");
 }
 
 function createZipSubmitButton(){
