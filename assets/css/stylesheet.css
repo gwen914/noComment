@@ -3,7 +3,7 @@ body, #homepage{
   background-color: #FCFCFC;
 }
 
-h1, h2, h3{
+h1, h2, h3, h4{
     font-family: 'Playfair Display SC', serif;
 }
 
@@ -48,7 +48,14 @@ a:hover{
 }
 
 #pageWelcome div h1{
-    margin-bottom: 1em;
+    font-size: 3em;
+    line-height: 2em;
+    margin-bottom: .5em;
+}
+
+#pageWelcome div small{
+    font-family: 'Rock Salt', sans-serif;
+    font-size: .5em;
 }
 
 #blankspace{
