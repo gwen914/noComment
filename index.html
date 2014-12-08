@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/stylesheet.css" media="screen">
     <link rel="stylesheet" href= "assets/css/font-awesome-4.2.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="assets/images/NYTDevLogo.png" type="image/x-icon" />
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC|Lato|Roboto|Forum|Rock+Salt' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC|Lato|Roboto|Forum|Rock+Salt|Abril+Fatface' rel='stylesheet' type='text/css'>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
@@ -34,55 +34,17 @@
     <div id="homepage" class="container">
 
       <!-- page Header -->
-      <div id="pageHeader">
-        <!-- <div class="jumbotron"> -->
-        <div class="page-header">
-          <h1 class="text-center">//noComment <small>Explore congressional data</small></h1>
+      <div id = "pageWelcome">
+        <div class = "col-xs-12 text-center">
+          <h1>//noComment<br><small>Explore local and state-wide congressional data</small></h1>
+        </div>
+        <img id = "capitalHill" width='100%' src = "assets/images/congress1.png">
+        <div>
+          <a href="#zipCodeDiv"><h4 class = "col-xs-12 col-sm-6 text-center">Find Congress Members</h4></a>
+          <a href="#recentBillsDiv"><h4 class = "col-xs-12 col-sm-6 text-center">Recent Bills Passed</h4></a>
         </div>
       </div>
       <!-- End Page Header -->
-
-      <!-- begin carousel -->
-      <div id="carousel" class="carousel slide" data-ride="carousel" data-interval=5000>
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel" data-slide-to="1"></li>
-         <li data-target="#carousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="assets/images/Capital.jpg" alt="Congress1">
-            <div class="carousel-caption">
-                <h1><a class = "goToSection" href="#toolTipAndMap">MAP</a></h1>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/Capital.jpg" alt="Congress2">
-            <div class="carousel-caption">
-               <h1><a class = "goToSection" href="#zipCodeDiv">ZIP</a></h1>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/Capital.jpg"  alt="Congress3">
-            <div class="carousel-caption">
-                <h1><a class = "goToSection" href="#recentBillsDiv">BILLS</a></h1>
-            </div>
-          </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-         <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-         <span class="glyphicon glyphicon-chevron-right"></span>
-       </a>
-      </div>
-      <!-- End Carousel -->
-
 
       <div class="row" id="blankspace"><hr style="border-color:lightGrey"></div>
       <!-- zipcode div -->
@@ -161,7 +123,7 @@
 
     <!-- REPRESENTATIVE PAGE CONTAINER -->
     <div id="repPage" class="hide">
-        <img id = "capitalHill" width='100%' src = "assets/images/capital_hill.jpg">
+        <img id = "flag" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" width='100%' src = "assets/images/congress1.png">
         <div id="page" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <h1 id="name" class="text-center"><span id="firstName"></span> <span id="lastName"></span></h1>
             <div id = "facts" class="section">

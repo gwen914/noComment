@@ -28,6 +28,29 @@ a:hover{
 
 /* HOMEPAGE CSS */
 
+#pageWelcome{
+    border-radius: 2em;
+    margin: 2em 0 15em;
+}
+
+#pageWelcome img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5em;
+    left: 0;
+    top: 0;
+}
+
+#pageWelcome div{
+    border-radius: 0 0 2em 2em;
+    left: 0;
+    bottom: 0;
+}
+
+#pageWelcome div h1{
+    margin-bottom: 1em;
+}
+
 #blankspace{
     height:45px;
 }
@@ -36,34 +59,9 @@ a:hover{
     padding-bottom: 10px;
 }
 
-
 .container{
     background-color: white;
     display: none;
-}
-
-
-.jumbotron{
-    background-color: transparent;
-    padding-top: 15px;
-    color:white;
-    border-color: gray;
-}
-
-.carousel{
-    margin-bottom: 10em;
-}
-
-.goToSection{
-    color: white;
-}
-
-.goToSection:hover{
-    color: black;
-}
-
-.carousel-control{
-    z-index: 100;
 }
 
 #zipSubmit{
@@ -178,17 +176,10 @@ li div .btn:hover, li div .btn-info:hover{
     padding-right: 15px;
 }
 
-#capitalHill {
-    position: relative;
-    opacity: .85;
-}
-
 #page {
-    position: absolute;
-    top: 10%;
     background-color: white !important;
     border-radius: 25px;
-    border: 1px black dotted;
+    border: 3px black double;
     margin-bottom: 10em;
 }
 
