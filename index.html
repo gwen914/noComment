@@ -17,6 +17,7 @@
     <script src="assets/js/states.js"></script>
     <script src="assets/js/state-page.js"></script>
     <script src="assets/js/Chart.js"></script>
+    <script src="assets/js/store.min.js"></script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -28,7 +29,7 @@
 <!-- main page content -->
 <div id="pageContent">
 
-    <div id="back" onclick="showHomePage();hide();hideBillPage();hideRepPage();">&#8592; Back to Homepage</div>
+    <div id="back" onclick="showHomePage();hide();hideBillPage();hideRepPage();hideSavedReps();">&#8592; Back to Homepage</div>
 
      <!-- HOME PAGE CONTAINER -->
     <div id="homepage" class="container">
@@ -40,8 +41,9 @@
         </div>
         <img id = "capitalHill" width='100%' src = "assets/images/congress1.png">
         <div>
-          <a href="#zipCodeDiv"><h4 class = "col-xs-12 col-sm-6 text-center">Find Congress Members</h4></a>
-          <a href="#recentBillsDiv"><h4 class = "col-xs-12 col-sm-6 text-center">Recent Bills Passed</h4></a>
+          <a href="#zipCodeDiv"><h4 class = "col-xs-12 col-sm-4 text-center">Find Congress Members</h4></a>
+          <a href="#recentBillsDiv"><h4 class = "col-xs-12 col-sm-4 text-center">Recent Bills Passed</h4></a>
+          <a onclick = "showSavedReps(); hideHomePage();"><h4 class = "col-xs-12 col-sm-4 text-center">See Saved Members</h4></a>
         </div>
       </div>
       <!-- End Page Header -->
@@ -120,12 +122,15 @@
   <!-- STATE PAGE CONTAINER-->
   <div id="info"></div>
 
+  <!-- SAVED REPS PAGE CONTAINER-->
+  <div id="savedRepsPage"></div>
+
 
     <!-- REPRESENTATIVE PAGE CONTAINER -->
     <div id="repPage" class="hide">
         <img id = "flag" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" width='100%' src = "assets/images/congress1.png">
         <div id="page" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <h1 id="name" class="text-center"><span id="firstName"></span> <span id="lastName"></span></h1>
+            <h1 id="name" class="text-center"><span id="firstName"></span> <span id="lastName"></span><span id = "savedRep" onClick = "saveRep()"></h1>
             <div id = "facts" class="section">
                 <h3>Basic Facts</h3>
                 <div id="lists">
@@ -133,6 +138,7 @@
                         <p><strong>Chamber: </strong><span id="chamber"></span></p>
                         <p><strong>State: </strong><a><span id="state"></span></a></p>
                         <p><strong>Party: </strong><span id="party"></span></p>
+                        <p style = "display: none;"><span id="memberID"></span></p>
                     </div>
                     <div class="list col-xs-12 col-sm-6 col-md-6">
                         <p><strong>Seniority: </strong><span id="seniority"></span></p>

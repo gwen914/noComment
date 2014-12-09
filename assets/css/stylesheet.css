@@ -183,7 +183,7 @@ li div .btn:hover, li div .btn-info:hover{
     padding-right: 15px;
 }
 
-#page {
+#page, #savedPage {
     background-color: white !important;
     border-radius: 25px;
     border: 3px black double;
@@ -199,7 +199,33 @@ li div .btn:hover, li div .btn-info:hover{
     padding: .1em 0;
 }
 
+.unfilled-star, .filled-star{
+    -webkit-text-stroke-width: 1px;
+    margin-left: .3em;
+}
 
+.unfilled-star{
+    color: #D1D1D1;
+    -webkit-text-stroke-color: #A7A7A7;
+
+}
+
+.filled-star{
+    color: yellow;
+    -webkit-text-stroke-color: orange;
+}
+
+
+/* SAVED REPS PAGE CSS */
+.clearReps{
+    margin-bottom: 2em;
+    color: #A7A7A7;
+}
+
+.clearReps:hover{
+    color: red;
+    cursor: pointer;
+}
 
 /* BILL PAGE CSS */
 .bill{

@@ -6,7 +6,6 @@ $(document).ready(function() {
     showHomePage();
 
 
-    //$('a[href*=#]:not([href=#])').click(function() {
     $('#pageWelcome div a').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
@@ -190,6 +189,12 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     var current_role = bio.roles[0];
     document.getElementById('firstName').innerHTML = bio.first_name;
     document.getElementById('lastName').innerHTML = bio.last_name;
+
+    if (store.get(member_id) === undefined)
+        $('#savedRep').html("<i class='unfilled-star fa fa-star'></i>");
+    else
+        $('#savedRep').html("<i class='filled-star fa fa-star'></i>");
+
     document.getElementById('chamber').innerHTML = current_role.chamber;
     document.getElementById('state').innerHTML = current_role.state;
 
@@ -251,6 +256,7 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
         getLegislators(state, current_role.state, [0], 0);
     });
     document.getElementById('party').innerHTML = current_role.party == 'D' ? 'Democrat' : 'Republican';
+    document.getElementById('memberID').innerHTML = member_id;
     document.getElementById('seniority').innerHTML = current_role.seniority;
     document.getElementById('missed-pct').innerHTML = current_role.missed_votes_pct;
     document.getElementById('votes-pct').innerHTML = current_role.votes_with_party_pct;
@@ -275,19 +281,27 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
         });
       }
     });
-
-    /*var bills_cosponsored_url = 'http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/' + member_id + '/bills/cosponsored.json?api-key=' + C_KEY;
-    requestJson(bills_cosponsored_url, function(cosponsoredJson) {
-      var bills2 = cosponsoredJson.results[0].bills;
-      //console.log(bills2[0].title);
-      for (k=0; k<bills2.length; k++) {
-        var bill = bills2[k];
-        var loadBillPage = '';// onClick(loadBillPage('+ C_KEY + ', '+ A_KEY + ',' + billURIToID(bill.bill_uri) + ',' + bill.congress + '));';
-        var item = '<li><a href="#" '+ loadBillPage + '>'+ bill.title + '</a></li>';
-        $('#co-sponsored-list').append(item);
-      }
-    });*/
   });
+}
+
+function saveRep(){
+    var id = $('#memberID').html();
+
+    if (store.get(id) === undefined) {
+        $('#savedRep').html("<i class='filled-star fa fa-star'></i>");
+        var info = {
+            fname: $('#firstName').html(),
+            lname: $('#lastName').html(),
+            party: $('#party').html(),
+            state: $('#state').html(),
+            iden: id
+        }
+        store.set(id, info)
+    }
+    else {
+        $('#savedRep').html("<i class='unfilled-star fa fa-star'></i>");
+        store.remove(id);
+    }
 }
 
 
@@ -300,7 +314,6 @@ function color(party) {
   }
 }
 
-
 function showRepPage(C_KEY, A_KEY, member_id) {
   loadRepPage(C_KEY, A_KEY, member_id);
   $('#repPage').removeClass('hide');
@@ -309,3 +322,48 @@ function showRepPage(C_KEY, A_KEY, member_id) {
 function hideRepPage() {
   $('#repPage').addClass('hide');
 }
+
+function showSavedReps(){
+    $('#savedRepsPage').html("");
+    var stored = store.getAll();
+    console.log(stored);
+
+    var html = '<img id = "flag" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" width="100%" src = "assets/images/congress1.png">';
+    html += '<div id="savedPage" class="text-center col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">'; //CLOSE DIV AT END!!
+    if (Object.keys(stored).length == 0) 
+        html += '<h1 class="text-center">No Saved Congress Members</h1>'
+    else {
+        html += '<h1 >Saved Congress Members</h1>'
+        html += '<div class = "clearReps" onclick="clearSavedReps()"><i class="fa fa-times"></i> Clear All Members</button>'
+    }
+
+    $('#savedRepsPage').append(html);
+    
+    $.each(stored, function(i,member){
+        var memberHTML = "<p id = 'savedMember'><a onclick = 'hideSavedReps(); showRepPage(";
+        memberHTML += '"' + CKey+ '" , "' + AKey + '" , "' + member.iden + '")' + "'>";
+        memberHTML += member.fname + " "+ member.lname + " ("+ member.party + ")</a>  - ";
+        var state;
+        $.each(uStatePaths, function(i, item){
+            if (item.id == member.state) {
+                state = item.n;
+            };
+        });
+        memberHTML += "<a onclick = 'hideSavedReps(); getLegislators(" + '"' + state +'" , "' +  member.state + '", [0], 0)' +  "'>" + member.state + "</a>";
+
+        $('#savedPage').append(memberHTML);
+    });
+
+
+}
+
+function hideSavedReps(){
+    $('#savedRepsPage').html("");
+}
+
+function clearSavedReps(){
+    store.clear();
+    showSavedReps();
+}
+
+
