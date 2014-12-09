@@ -182,15 +182,14 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     document.getElementById('chamber').innerHTML = current_role.chamber;
     document.getElementById('state').innerHTML = current_role.state;
 
-    $('#website-link').removeClass('hide');
-    $('#facebook-link').removeClass('hide');
-    $('#twitter-link').removeClass('hide');
-    $('#youtube-link').removeClass('hide');
+    var contact_info = false; 
 
     if (bio.url.length == 0) {
         $('#website-link').addClass('hide');
     }
     else {
+        contact_info = true;
+        $('#website-link').removeClass('hide');
         document.getElementById('website-link').href = bio.url;
     }
 
@@ -199,6 +198,8 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     }
 
     else {
+        contact_info = true;
+        $('#facebook-link').removeClass('hide');
         document.getElementById('facebook-link').href = 'http://www.facebook.com/' + bio.facebook_id;
     }
     
@@ -206,6 +207,8 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
         $('#twitter-link').addClass('hide');
     }
     else {
+        contact_info = true;
+        $('#twitter-link').removeClass('hide');
         document.getElementById('twitter-link').href = 'http://www.twitter.com/' + bio.twitter_account;
     }
 
@@ -213,7 +216,17 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
         $('#youtube-link').addClass('hide');
     }
     else {
+        contact_info = true;
+        $('#youtube-link').removeClass('hide');
         document.getElementById('youtube-link').href = 'http://www.youtube.com/user/' + bio.youtube_account;
+    }
+
+    // If no contact info
+    if (!contact_info) {
+        $('#contact').addClass('hide');
+    }
+    else {
+        $('#contact').removeClass('hide');
     }
     
     $('#state').off("click").click(function() {
