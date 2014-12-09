@@ -115,6 +115,11 @@ function getStateZip(zip){
 	$.ajax({
 	    url: URI,
 	    success: function(results){
+	    	console.log(results);
+	    	if (results.results.length == 0) {
+	    		zipErrorMessage(zip);
+	    		return;
+	    	};
 	    	var members = results.results;
 	    	var statename = "";
 	    	var id = "";
@@ -245,6 +250,12 @@ function showLegislators(results, chamber){
 	if (chamber == "senate") {
 		showPartyCount();
 	};
+}
+
+function zipErrorMessage(zip){
+	html = "<h1 class='text-center err-message'>" + zip + " is not a valid zip code<br>"
+	html += "<small>Please try another search</small></h1>"
+	$('#info').html(html);
 }
 
 function hide(){
