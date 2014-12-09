@@ -342,6 +342,9 @@ function showSavedReps(){
     $('#savedRepsPage').append(html);
     
     $.each(stored, function(i,member){
+        if (member.iden === undefined)
+            return True;
+
         var memberHTML = "<p id = 'savedMember'><a onclick = 'hideSavedReps(); showRepPage(";
         memberHTML += '"' + CKey+ '" , "' + AKey + '" , "' + member.iden + '")' + "'>";
         memberHTML += member.fname + " "+ member.lname + " ("+ member.party + ")</a>  - ";
