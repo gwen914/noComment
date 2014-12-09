@@ -43,25 +43,23 @@ function showSenateBills(json){
 
     for(var i = 0; i < json.results[0].bills.length; i++){
         var billListElement = document.createElement('li');
-        var billDiv = document.createElement('div');
-        var billTitle = document.createElement('button');
-        billTitle.setAttribute("class", "btn btn-info");
-        billTitle.textContent = json.results[0].bills[i].title;
+        var billLinkElement = document.createElement('a');
+        billLinkElement.innerHTML = json.results[0].bills[i].title;
 
-        $(billDiv).append(billTitle);
-        $(billListElement).append(billDiv);
+        $(billListElement).append(billLinkElement);
         $(recentBillsList).append(billListElement);
-        $("#recentSenateBills").append(recentBillsList);
 
         (function (bills, i) {
             var bill_id = billURIToID(bills[i].bill_uri);
             var congress_num = billURIToCongress(bills[i].bill_uri);
-            $(billTitle).click(function() {
+            $(billLinkElement).click(function() {
                 hideHomePage();
                 loadBillPage(congress_API_Key, article_API_Key, bill_id, congress_num);
             });
         })(json.results[0].bills, i);
     }
+
+    $("#recentSenateBills").append(recentBillsList);
 }
 
 function showHouseBills(json){
@@ -70,27 +68,23 @@ function showHouseBills(json){
 
     for(var i = 0; i < json.results[0].bills.length; i++){
         var billListElement = document.createElement('li');
-        var billDiv = document.createElement('div');
-        billDiv.setAttribute("height", "34");
-        var billTitle = document.createElement('button');
-        billTitle.setAttribute("class", "btn btn-info");
-        billTitle.setAttribute("height", "34");
-        billTitle.textContent = json.results[0].bills[i].title;
+        var billLinkElement = document.createElement('a');
+        billLinkElement.innerHTML = json.results[0].bills[i].title;
 
-        $(billDiv).append(billTitle);
-        $(billListElement).append(billDiv);
+        $(billListElement).append(billLinkElement);
         $(recentBillsList).append(billListElement);
-        $("#recentHouseBills").append(recentBillsList);
 
         (function (bills, i) {
             var bill_id = billURIToID(bills[i].bill_uri);
             var congress_num = billURIToCongress(bills[i].bill_uri);
-            $(billTitle).click(function() {
+            $(billLinkElement).click(function() {
                 hideHomePage();
                 loadBillPage(congress_API_Key, article_API_Key, bill_id, congress_num);
             });
         })(json.results[0].bills, i);
     }
+
+    $("#recentHouseBills").append(recentBillsList);
 }
 
 function showHomePage(){
