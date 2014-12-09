@@ -255,7 +255,7 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
         });
         getLegislators(state, current_role.state, [0], 0);
     });
-    document.getElementById('party').innerHTML = current_role.party == 'D' ? 'Democrat' : 'Republican';
+
     document.getElementById('memberID').innerHTML = member_id;
     document.getElementById('seniority').innerHTML = current_role.seniority;
     document.getElementById('missed-pct').innerHTML = current_role.missed_votes_pct;
@@ -308,12 +308,17 @@ function saveRep(){
 
 
 function color(party) {
-  if (party == 'D') {
-    $('#name').css('color', 'blue');
-  }
-  else {
-    $('#name').css('color', 'red');
-  }
+    if (party == 'D') {
+        $('#name').css('color', 'blue');
+        document.getElementById('party').innerHTML = 'Democrat';
+    }
+    else if (party == 'R') {
+        $('#name').css('color', 'red');
+        document.getElementById('party').innerHTML = 'Republican';
+    }
+    else {
+        document.getElementById('party').innerHTML = 'Other';
+    }
 }
 
 function showRepPage(C_KEY, A_KEY, member_id) {
