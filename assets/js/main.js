@@ -181,6 +181,54 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     document.getElementById('lastName').innerHTML = bio.last_name;
     document.getElementById('chamber').innerHTML = current_role.chamber;
     document.getElementById('state').innerHTML = current_role.state;
+
+    var contact_info = false; 
+
+    if (bio.url.length == 0) {
+        $('#website-link').addClass('hide');
+    }
+    else {
+        contact_info = true;
+        $('#website-link').removeClass('hide');
+        document.getElementById('website-link').href = bio.url;
+    }
+
+    if (bio.facebook_id.length == 0) {
+        $('#facebook-link').addClass('hide');
+    }
+
+    else {
+        contact_info = true;
+        $('#facebook-link').removeClass('hide');
+        document.getElementById('facebook-link').href = 'http://www.facebook.com/' + bio.facebook_id;
+    }
+    
+    if (bio.twitter_account.length == 0) {
+        $('#twitter-link').addClass('hide');
+    }
+    else {
+        contact_info = true;
+        $('#twitter-link').removeClass('hide');
+        document.getElementById('twitter-link').href = 'http://www.twitter.com/' + bio.twitter_account;
+    }
+
+    if (bio.youtube_account.length == 0) {
+        $('#youtube-link').addClass('hide');
+    }
+    else {
+        contact_info = true;
+        $('#youtube-link').removeClass('hide');
+        document.getElementById('youtube-link').href = 'http://www.youtube.com/user/' + bio.youtube_account;
+    }
+
+    // If no contact info
+    if (!contact_info) {
+        $('#contact').addClass('hide');
+    }
+    else {
+        $('#contact').removeClass('hide');
+    }
+    
     $('#state').off("click").click(function() {
         hideRepPage();
         var state;
@@ -195,6 +243,7 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     document.getElementById('seniority').innerHTML = current_role.seniority;
     document.getElementById('missed-pct').innerHTML = current_role.missed_votes_pct;
     document.getElementById('votes-pct').innerHTML = current_role.votes_with_party_pct;
+
     var committees = current_role.committees[0].name;
     for (i=1; i< current_role.committees.length; i++) {
       committees = committees + ', ' + current_role.committees[i].name;
