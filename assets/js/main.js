@@ -181,6 +181,10 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     document.getElementById('lastName').innerHTML = bio.last_name;
     document.getElementById('chamber').innerHTML = current_role.chamber;
     document.getElementById('state').innerHTML = current_role.state;
+    document.getElementById('website-link').href = bio.url;
+    document.getElementById('facebook-link').href = 'http://www.facebook.com/' + bio.facebook_id;
+    document.getElementById('twitter-link').href = 'http://www.twitter.com/' + bio.twitter_account;
+    document.getElementById('youtube-link').href = 'http://www.youtube.com/user/' + bio.youtube_account;
     $('#state').off("click").click(function() {
         hideRepPage();
         var state;
@@ -195,6 +199,7 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     document.getElementById('seniority').innerHTML = current_role.seniority;
     document.getElementById('missed-pct').innerHTML = current_role.missed_votes_pct;
     document.getElementById('votes-pct').innerHTML = current_role.votes_with_party_pct;
+
     var committees = current_role.committees[0].name;
     for (i=1; i< current_role.committees.length; i++) {
       committees = committees + ', ' + current_role.committees[i].name;
