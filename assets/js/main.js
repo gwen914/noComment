@@ -68,7 +68,7 @@ function showBill(C_KEY, A_KEY, bill, bill_id, congress_num) {
     b_clone.find('.billCode').first().text(bill.bill);
     b_clone.find('.billCommittees').first().text(bill.committees);
     b_clone.find('.billCongress').first().text(bill.congress);
-    b_clone.find('.billIntroducedDate').first().text(bill.introduced_date);
+    b_clone.find('.billIntroducedDate').first().text(billIntroduceDateFormat(bill.introduced_date));
 
     action_list = b_clone.find('.billActions').first();
     if (bill.actions.length == 0) {
@@ -76,7 +76,7 @@ function showBill(C_KEY, A_KEY, bill, bill_id, congress_num) {
     } else {
         for (i = bill.actions.length - 1; i >= 0; i--) {
             action_clone = action_list.find('.action').first().clone(true);
-            action_clone.find('.actionDate').first().text(bill.actions[i].datetime);
+            action_clone.find('.actionDate').first().text(billActionDateFormat(bill.actions[i].datetime));
             action_clone.find('.actionText').first().text(bill.actions[i].description);
             action_clone.appendTo(action_list).removeClass('hide');
         }
@@ -153,6 +153,20 @@ function billURIToID(bill_uri) {
 function billURIToCongress(bill_uri) {
     var parts =  bill_uri.split('/');
     return parts[parts.length - 3];
+}
+
+function billIntroduceDateFormat(date) {
+    var parts = date.split('-');
+    return parts[1] + '/' + parts[2] + '/' + parts[0];
+}
+
+function billActionDateFormat(date) {
+    var d = new Date(date),
+        month = d.getMonth() + 1,
+        hours = d.getHours() > 9 ? d.getHours() : '0' + d.getHours(),
+        minutes = d.getMinutes() > 9 ? d.getMinutes() : '0' + d.getMinutes();
+
+    return month + '/' + d.getDate() + '/' + d.getFullYear() + ', ' + hours + ':' + minutes;
 }
 
 // REPRESENTATIVE
