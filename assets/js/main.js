@@ -266,6 +266,8 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
       committees = committees + ', ' + current_role.committees[i].name;
     }
     document.getElementById('committees-names').innerHTML = committees;
+
+    $('#sponsored-list').children().remove();
     var bills_sponsored_url = 'http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/' + member_id+ '/bills/introduced.json?api-key=' + C_KEY;
     requestJson(bills_sponsored_url, function(sponsoredJson) {
       var bills = sponsoredJson.results[0].bills;
