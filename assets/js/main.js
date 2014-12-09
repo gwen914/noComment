@@ -33,6 +33,7 @@ function linkInit(C_KEY, A_KEY) {
     $('.billLink').click(function() {
         var bill_id = $(this).parent().find('.billID').first().text(),
             congress_num = $(this).parent().find('.congressNum').first().text();
+        hideBillPage();
         loadBillPage(C_KEY, A_KEY, bill_id, congress_num);
     });
 }
@@ -154,10 +155,6 @@ function billURIToCongress(bill_uri) {
     return parts[parts.length - 3];
 }
 
-function clearContentContainer() {
-    $('#pageContent').children().remove();
-}
-
 // REPRESENTATIVE
 
 function requestJson(url, callback) {
@@ -182,7 +179,7 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     document.getElementById('chamber').innerHTML = current_role.chamber;
     document.getElementById('state').innerHTML = current_role.state;
 
-    var contact_info = false; 
+    var contact_info = false;
 
     if (bio.url.length == 0) {
         $('#website-link').addClass('hide');
@@ -202,7 +199,7 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
         $('#facebook-link').removeClass('hide');
         document.getElementById('facebook-link').href = 'http://www.facebook.com/' + bio.facebook_id;
     }
-    
+
     if (bio.twitter_account.length == 0) {
         $('#twitter-link').addClass('hide');
     }
@@ -228,7 +225,7 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     else {
         $('#contact').removeClass('hide');
     }
-    
+
     $('#state').off("click").click(function() {
         hideRepPage();
         var state;
