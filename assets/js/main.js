@@ -181,10 +181,41 @@ function loadRepPage(C_KEY, A_KEY, member_id) {
     document.getElementById('lastName').innerHTML = bio.last_name;
     document.getElementById('chamber').innerHTML = current_role.chamber;
     document.getElementById('state').innerHTML = current_role.state;
-    document.getElementById('website-link').href = bio.url;
-    document.getElementById('facebook-link').href = 'http://www.facebook.com/' + bio.facebook_id;
-    document.getElementById('twitter-link').href = 'http://www.twitter.com/' + bio.twitter_account;
-    document.getElementById('youtube-link').href = 'http://www.youtube.com/user/' + bio.youtube_account;
+
+    $('#website-link').removeClass('hide');
+    $('#facebook-link').removeClass('hide');
+    $('#twitter-link').removeClass('hide');
+    $('#youtube-link').removeClass('hide');
+
+    if (bio.url.length == 0) {
+        $('#website-link').addClass('hide');
+    }
+    else {
+        document.getElementById('website-link').href = bio.url;
+    }
+
+    if (bio.facebook_id.length == 0) {
+        $('#facebook-link').addClass('hide');
+    }
+
+    else {
+        document.getElementById('facebook-link').href = 'http://www.facebook.com/' + bio.facebook_id;
+    }
+    
+    if (bio.twitter_account.length == 0) {
+        $('#twitter-link').addClass('hide');
+    }
+    else {
+        document.getElementById('twitter-link').href = 'http://www.twitter.com/' + bio.twitter_account;
+    }
+
+    if (bio.youtube_account.length == 0) {
+        $('#youtube-link').addClass('hide');
+    }
+    else {
+        document.getElementById('youtube-link').href = 'http://www.youtube.com/user/' + bio.youtube_account;
+    }
+    
     $('#state').off("click").click(function() {
         hideRepPage();
         var state;
