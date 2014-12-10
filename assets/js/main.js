@@ -337,7 +337,7 @@ function showSavedReps(){
 
     var html = '<img id = "flag" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" width="100%" src = "assets/images/congress1.png">';
     html += '<div id="savedPage" class="text-center col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">'; //CLOSE DIV AT END!!
-    if (Object.keys(stored).length == 0) 
+    if (Object.keys(stored).length == 0)
         html += '<h1 class="text-center">No Saved Congress Members</h1>'
     else {
         html += '<h1 >Saved Congress Members</h1>'
@@ -345,10 +345,10 @@ function showSavedReps(){
     }
 
     $('#savedRepsPage').append(html);
-    
+
     $.each(stored, function(i,member){
         if (member.iden === undefined)
-            return True;
+            return true;
 
         var memberHTML = "<p id = 'savedMember'><a onclick = 'hideSavedReps(); showRepPage(";
         memberHTML += '"' + CKey+ '" , "' + AKey + '" , "' + member.iden + '")' + "'>";
